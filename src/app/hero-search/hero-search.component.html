@@ -1,0 +1,44 @@
+<div class="content" id="content_search">
+    <h1 class="page-title">Tout les héros</h1>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <div class="row imgback">
+                    <div class="hidden-xs col-sm-3"></div>
+                    <div class="col-xs-12 col-sm-9 fp">
+                        <div class="filters">
+                            <!-- Formulaire -->
+                            <form action="#" novalidate>
+                                <div class="filter">
+                                    <p><label for="">Nom du héro</label></p>
+                                    <p><input type="text" placeholder="ex: Reaper"></p>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="result">
+                <div class="heroes row">
+                    <div class="col-xs-6 col-sm-3 hero" *ngFor='let hero of heroes'>
+                        <a [routerLink]="['/detail',hero.Id]">
+                            <img src="./assets/images/{{hero.Photo}}" alt="Zenyatta" height="175" width="150">
+                            <div class="bot">
+                                <p class="name">{{hero.Nom}}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="row showmore">
+            <div class="col-xs-12">
+                <button type="button" class="btn btn_color1"><span class="glyphicon glyphicon-chevron-down"></span>Afficher d'avantage</button>
+            </div>
+        </div>-->
+    </div>
+</div>

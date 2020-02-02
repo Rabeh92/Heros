@@ -21,12 +21,15 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/api"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/scripts/jquery-3.1.1.js"
+            ]
           },
           "configurations": {
             "production": {

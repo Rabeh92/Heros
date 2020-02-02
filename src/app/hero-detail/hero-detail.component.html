@@ -1,0 +1,21 @@
+<div class="content" id="hero_details">
+    <h1 class="page-title">Un héro en détail</h1>
+
+    <section class="section details" *ngIf="hero">
+        <div class="row">
+            <div class="col-vxs-12 col-xs-6 col-sm-5">
+                <div class="avatar-wrap">
+                    <img class="avatar" src="./assets/images/{{hero.Photo}}" alt="D.Va">
+                </div>
+            </div>
+            <div class="col-vxs-12 col-xs-6 col-sm-7">
+                <div class="infos">
+                    <h1 class="name">{{hero.Nom}}</h1>
+                    <p><span><span class="fwb">Citation :</span> {{hero.Citation}}</span></p>
+                    <p><span><span class="fwb">Âge :</span> {{hero.Age}}</span></p>
+                    <p><span><span class="fwb">Pouvoir :</span> {{hero.Pouvoir}}</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
