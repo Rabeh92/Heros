@@ -11,7 +11,7 @@
                             <form action="#" novalidate>
                                 <div class="filter">
                                     <p><label for="">Nom du héro</label></p>
-                                    <p><input type="text" placeholder="ex: Reaper"></p>
+                                    <p><input type="text" [(ngModel)]="heroFilter" name="hero"></p>
                                 </div>
                                 
                             </form>
@@ -23,7 +23,7 @@
         <div class="col-xs-12">
             <div class="result">
                 <div class="heroes row">
-                    <div class="col-xs-6 col-sm-3 hero" *ngFor='let hero of heroes'>
+                    <div class="col-xs-6 col-sm-3 hero" *ngFor='let hero of filtredHeros'>
                         <a [routerLink]="['/detail',hero.Id]">
                             <img src="./assets/images/{{hero.Photo}}" alt="Zenyatta" height="175" width="150">
                             <div class="bot">

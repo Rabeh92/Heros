@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
 import { HerosService } from '../home/heroes.service';
 import { IHero } from '../home/hero';
 @Component({
@@ -10,17 +8,32 @@ import { IHero } from '../home/hero';
 })
 export class HeroSearchComponent implements OnInit {
 
-  heroes: IHero[] = [];
-  router: Router;
-  constructor(private herosService: HerosService) { }
+  
 
+  heroes: IHero[] = [];
+  filtredHeros: IHero[]=[];
+  private _heroFilter: string = '';
+
+  get heroFilter(): string {
+    return this._heroFilter;
+  }
+  set heroFilter(value: string) {
+    this._heroFilter = value;
+    this.filtredHeros=this.heroFilter?this.performFilter(this.heroFilter):this.heroes;
+  }
+  
+  constructor(private herosService: HerosService) { }
+  
+  performFilter(filterBy: string): IHero[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.heroes.filter((hero: IHero) =>
+      hero.Nom.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
   ngOnInit() {
     this.herosService.getHeros()
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe(heroes =>{
+        this.heroes = heroes;
+        this.filtredHeros=this.heroes;
+      } );
   }
-  gotoDetail(hero: IHero): void {
-    const link = ['/detail', hero.Id];
-    this.router.navigate(link);
-  }
-
 }

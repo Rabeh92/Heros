@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
-
+import { FormsModule } from '@angular/forms';
+import { AddHeroModule } from './add-hero/add-hero.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,9 +17,11 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
