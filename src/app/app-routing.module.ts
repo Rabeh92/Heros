@@ -8,7 +8,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'detail/:Id', component: HeroDetailComponent },
-  { path: 'search', component: HeroSearchComponent }
+  { path: 'search', component: HeroSearchComponent },
+  { path: 'new',
+      loadChildren: () => import('./add-hero/add-hero.module').then(m => m.AddHeroModule) }
 ];
 
 @NgModule({
